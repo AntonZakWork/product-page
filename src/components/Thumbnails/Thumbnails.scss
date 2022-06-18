@@ -1,0 +1,33 @@
+@import '../../variables';
+
+.thumbnail{
+    box-sizing: border-box;
+    max-width: 20%;
+    max-height: 100%;
+    position:relative;
+    
+    &:hover{
+        cursor:pointer;
+        &::after{
+            content: "";
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 110%;
+            height: 110%;
+            background-color: rgba(255, 255, 255, 0.35);
+        }
+    }
+    img{
+        border-radius: 12px;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    
+    &.active{
+        img{
+        border: 3px solid $orange;
+        border-radius: 12px;
+        }
+    }
+}

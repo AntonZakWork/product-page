@@ -1,0 +1,27 @@
+@import '../../variables';
+.cart {
+    position:absolute;
+    background-color: white;
+    right: -80px;
+    top: 42px;
+    width: 300px;
+    height: 200px;
+    box-shadow: 0 0 30px $grayishBlue;
+    border: 1px solid $lightGrayishBlue;
+    border-radius: 12px;
+    font-weight: 700;
+    display:grid;
+    grid-template-rows: 1fr 4fr;
+    
+}
+.cartHeader{
+    font-size: 0.8rem;
+    padding: 10px;
+    color:black;
+    border-bottom: 2px solid $lightGrayishBlue;
+}
+.cartContent{
+    font-size: 0.8rem;
+    justify-self: center;
+    align-self:center;
+}

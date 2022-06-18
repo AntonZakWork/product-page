@@ -1,0 +1,17 @@
+@import './variables';
+@media (max-height: 500px){
+    .App{
+        padding: 10px 15px !important;
+    }
+};
+// @media (max-height: 400px){
+//     .App{
+//         padding: 0px 10vw !important;
+//     }
+// };
+.App {
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+    padding: 4vh 10vw;
+}
