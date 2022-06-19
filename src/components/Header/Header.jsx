@@ -42,6 +42,7 @@ const Header = () => {
         <div className="headerIcons">
           <svg
             onClick={(e) => {
+              e.stopPropagation();
               dispatch(changePopupStatus());
             }}
             width="22"

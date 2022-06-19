@@ -11,6 +11,7 @@ const Thumbnails = () => {
     <>
       {itemThumbnails.map((el, index) => (
         <div
+          key={index}
           onClick={() => {
             isLightboxOpen ? dispatch(setLightboxIndex(index)) : dispatch(setCurrentImage(index));
           }}
