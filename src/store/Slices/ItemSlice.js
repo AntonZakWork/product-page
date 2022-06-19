@@ -11,6 +11,7 @@ const initialState = {
   itemPictures: [item1, item2, item3, item4],
   itemThumbnails: [thumbnail1, thumbnail2, thumbnail3, thumbnail4],
   currentImgIndex: 0,
+  currentLightboxImgIndex: 0,
   item: {
     companyName: 'SNEAKER COMPANY',
     itemName: 'Fall Limited Edition Sneakers',
@@ -21,6 +22,7 @@ const initialState = {
     previousPrice: '$250.00',
   },
   showPopupStatus: false,
+  isLightboxOpen: false,
 };
 export const itemSlice = createSlice({
   name: 'item',
@@ -32,8 +34,29 @@ export const itemSlice = createSlice({
     changePopupStatus(state) {
       state.showPopupStatus = !state.showPopupStatus;
     },
+    changeLightboxStatus(state) {
+      state.isLightboxOpen = !state.isLightboxOpen;
+    },
+    setLightboxIndex(state, action) {
+      state.currentLightboxImgIndex = action.payload;
+    },
+    nextPicture(state) {
+      state.currentLightboxImgIndex += 1;
+      if (state.currentLightboxImgIndex > 3) state.currentLightboxImgIndex = 0;
+    },
+    prevPicture(state) {
+      state.currentLightboxImgIndex -= 1;
+      if (state.currentLightboxImgIndex < 0) state.currentLightboxImgIndex = 3;
+    },
   },
 });
 
-export const { setCurrentImage, changePopupStatus } = itemSlice.actions;
+export const {
+  setCurrentImage,
+  changePopupStatus,
+  changeLightboxStatus,
+  nextPicture,
+  prevPicture,
+  setLightboxIndex,
+} = itemSlice.actions;
 export default itemSlice.reducer;

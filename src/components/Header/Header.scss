@@ -5,7 +5,7 @@
     position:relative;
     width: 80vw;
     display:grid;
-    grid-template-columns: 140px 70vh;
+    grid-template-columns: 140px 50px;
     grid-gap:4vh; 
     color: $darkGrayishBlue;
     &::after{
@@ -25,7 +25,7 @@
 .propsContainer {
     display:grid;
     grid-template-columns: repeat(5,  auto) 100px;
-    grid-gap: min(15px, 3vh);
+    grid-gap: min(15px, 3vw);
 }
 .headerProp {
     display:inline-block;
@@ -81,7 +81,6 @@
     width: 50px;
     height: 50px;
     border: 2px solid $white;
-        border-radius: 100vh;
     &:hover {
         border: 2px solid $orange;
         border-radius: 100vh;
