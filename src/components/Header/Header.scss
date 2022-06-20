@@ -1,12 +1,8 @@
 @import '../../variables';
 @import '../../normalize';
 
-
-
-
 .headerContainer {
     position:relative;
-    width: 80vw;
     display:grid;
     grid-template-columns: 140px 50px;
     grid-gap:4vw; 
@@ -22,14 +18,14 @@
         @media(max-width: 750px) {
             display:inline;
             position:absolute;
-            left: -25px;
-            top: 4px;
+            left: 29px;
+            top: 3px;
         }
-        @media(max-width: 500px) {
+        @media(max-width: 550px) {
             display:inline;
             position:absolute;
-            left: -25px;
-            top: 4px;
+            left: -18px;
+            top: 3px;
         }
     }
     &::after{
@@ -48,8 +44,6 @@
         }
     }
     svg{
-    align-self: center;
-    justify-self: center;
     position:relative;
     &#logo{
         @media(max-width: 750px){
@@ -133,21 +127,21 @@
     text-align: center;
     vertical-align: middle;
     line-height: 15px;
-
+    @media(max-width:300px) {
+        left: -68px;
+    }
 }
 .avatar{
+    border-radius: 100vh;
     box-sizing: border-box;
     position: absolute;
     right: 0px;
     top: -12px;
-    width: 50px;
     height: 50px;
     border: 2px solid $white;
-
+    cursor:pointer;
     &:hover {
         border: 2px solid $orange;
-        border-radius: 100vh;
-        cursor:pointer;
     }
 }
 }

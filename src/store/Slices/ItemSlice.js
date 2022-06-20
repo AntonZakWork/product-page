@@ -60,7 +60,6 @@ export const itemSlice = createSlice({
       }
     },
     toggleModalMenu(state) {
-      console.log(state.modalMenuStatus);
       state.modalMenuStatus = !state.modalMenuStatus;
     },
   },

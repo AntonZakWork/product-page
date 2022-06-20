@@ -1,8 +1,9 @@
 @import '../../variables';
 .cart {
+    box-sizing: border-box;
     z-index: 1000;
     position:absolute;
-    background-color: white;
+    background-color: $white;
     right: -80px;
     top: 42px;
     width: 300px;
@@ -19,28 +20,27 @@
     @media(max-width:550px) {
         right: -10px;
     }
-
+    @media(max-width:375px) {
+        right: -37px;
+        width: 96vw;
+        margin: 0 2vw;
+    }
     @media(max-width:350px) {
-        right: -15px;
-    }
-    @media(max-width:320px) {
-        right: -25px;
-    }
-    @media(max-width:320px) {
         right: -35px;
     }
+    @media(max-width:320px) {
+        right: -28px;
+    }
+
     button {
         justify-self: center;
         width: 200px;
         height: 45px;
         font-size: 0.7em;
-        color: white;
+        color: $white;
         font-weight: 700;
-        background-color: #ff7d1a;
+        background-color: $orange;
         border-radius: 8px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         cursor: pointer;
         &:hover{
             opacity: 0.7;
@@ -53,7 +53,7 @@
 .cartHeader{
     font-size: 0.8em;
     padding: 10px;
-    color:black;
+    color:$black;
     border-bottom: 2px solid $lightGrayishBlue;
 }
 .cartContent{

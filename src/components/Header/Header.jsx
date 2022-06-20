@@ -5,17 +5,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { changePopupStatus, toggleModalMenu } from '../../store/Slices/ItemSlice';
 import Cart from '../Cart/Cart';
 const Header = () => {
-  //   const [width, setWidth] = useState(window.innerWidth);
-
-  //   const handleResize = () => {
-  //     setWidth(window.innerWidth);
-  //   };
-
-  //   useEffect(() => {
-  //     window.addEventListener('resize', handleResize);
-  //     return () => window.removeEventListener('resize', handleResize);
-  //   }, []);
-
   const { showPopupStatus } = useSelector((state) => state.item);
   const { itemCount } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
