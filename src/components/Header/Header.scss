@@ -1,13 +1,37 @@
 @import '../../variables';
 @import '../../normalize';
 
+
+
+
 .headerContainer {
     position:relative;
     width: 80vw;
     display:grid;
     grid-template-columns: 140px 50px;
-    grid-gap:4vh; 
+    grid-gap:4vw; 
     color: $darkGrayishBlue;
+    @media (max-width: 750px) {
+        margin: auto;
+        width: 80%;
+        overflow:visible;
+    }
+    
+    .svgMenu{
+        display: none;
+        @media(max-width: 750px) {
+            display:inline;
+            position:absolute;
+            left: -25px;
+            top: 4px;
+        }
+        @media(max-width: 500px) {
+            display:inline;
+            position:absolute;
+            left: -25px;
+            top: 4px;
+        }
+    }
     &::after{
         position: absolute;
         bottom:  -20px;
@@ -16,16 +40,44 @@
         width: 100%;
         max-width: 80vw;
         background-color: rgb(232,232,234);
+        @media(max-width: 750px) {
+            display:none;
+            width: 95%;
+            bottom: -42px;
+            left: 36px;
+        }
     }
     svg{
-        align-self: center;
+    align-self: center;
     justify-self: center;
-    }
+    position:relative;
+    &#logo{
+        @media(max-width: 750px){
+        position: absolute;
+        left: 50px;
+        top: 0px;
+        cursor:pointer;
+        &::after{
+            cursor:pointer;
+           content:url("data:image/svg+xml,%3Csvg width='15' height='15' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 12v3H0v-3h16Zm0-6v3H0V6h16Zm0-6v3H0V0h16Z' fill='%2369707D' fill-rule='evenodd'/%3E%3C/svg%3E");
+            position: absolute;
+            left: -25px;
+            top: 2px;
+    
+}
+}
+@media(max-width: 550px) {
+    left: 5px;
+}}
+    
 }
 .propsContainer {
     display:grid;
     grid-template-columns: repeat(5,  auto) 100px;
     grid-gap: min(15px, 3vw);
+    @media(max-width: 750px){
+        display:none
+    }
 }
 .headerProp {
     display:inline-block;
@@ -49,10 +101,20 @@
 .headerIcons{
    position:absolute;
    right: 0px;
+   @media(max-width: 750px) {
+    right: -50px;
+   }
+   @media(max-width: 550px) {
+    right: 0px;
+   }
    svg{
     position: absolute;
     top: 2px;
     left: -90px;
+    @media(max-width:300px) {
+        left: -75px;
+    }
+   
     &:hover {
         cursor:pointer;
         filter: brightness(25%);
@@ -81,10 +143,12 @@
     width: 50px;
     height: 50px;
     border: 2px solid $white;
+
     &:hover {
         border: 2px solid $orange;
         border-radius: 100vh;
         cursor:pointer;
     }
+}
 }
 }

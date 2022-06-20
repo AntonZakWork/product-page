@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addToCart, minusItem, plusItem, resetCounterValue } from '../../store/Slices/CartSlice';
+import { addToCart, minusItem, plusItem } from '../../store/Slices/CartSlice';
 
 import './Item.scss';
 import ItemPics from './ItemPictures/ItemPics';
@@ -69,7 +69,6 @@ const Item = () => {
             <button
               onClick={() => {
                 dispatch(addToCart({ ...item, counterValue }));
-                dispatch(resetCounterValue());
               }}
               className="addToCart"
               disabled={counterValue == 0 ? true : false}>

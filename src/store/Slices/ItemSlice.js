@@ -23,6 +23,7 @@ const initialState = {
   },
   showPopupStatus: false,
   isLightboxOpen: false,
+  modalMenuStatus: false,
 };
 export const itemSlice = createSlice({
   name: 'item',
@@ -41,12 +42,26 @@ export const itemSlice = createSlice({
       state.currentLightboxImgIndex = action.payload;
     },
     nextPicture(state) {
-      state.currentLightboxImgIndex += 1;
-      if (state.currentLightboxImgIndex > 3) state.currentLightboxImgIndex = 0;
+      if (state.isLightboxOpen) {
+        state.currentLightboxImgIndex += 1;
+        if (state.currentLightboxImgIndex > 3) state.currentLightboxImgIndex = 0;
+      } else {
+        state.currentImgIndex += 1;
+        if (state.currentImgIndex > 3) state.currentImgIndex = 0;
+      }
     },
     prevPicture(state) {
-      state.currentLightboxImgIndex -= 1;
-      if (state.currentLightboxImgIndex < 0) state.currentLightboxImgIndex = 3;
+      if (state.isLightboxOpen) {
+        state.currentLightboxImgIndex -= 1;
+        if (state.currentLightboxImgIndex < 0) state.currentLightboxImgIndex = 3;
+      } else {
+        state.currentImgIndex -= 1;
+        if (state.currentImgIndex < 0) state.currentImgIndex = 3;
+      }
+    },
+    toggleModalMenu(state) {
+      console.log(state.modalMenuStatus);
+      state.modalMenuStatus = !state.modalMenuStatus;
     },
   },
 });
@@ -58,5 +73,6 @@ export const {
   nextPicture,
   prevPicture,
   setLightboxIndex,
+  toggleModalMenu,
 } = itemSlice.actions;
 export default itemSlice.reducer;

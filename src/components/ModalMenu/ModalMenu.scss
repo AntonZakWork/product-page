@@ -1,0 +1,43 @@
+.modalMenu{
+    z-index: 1000;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,0.85);
+    position:absolute;
+    top: 0;
+    left: 0;
+}
+
+.menuContent{
+    height: 100%;
+    width: max(50%, 250px);
+    background-color: white;
+    display: flex;
+
+}
+.closeModalMenu{
+    cursor: pointer;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    &:hover{
+        filter: invert(59%) sepia(17%) saturate(6782%) hue-rotate(347deg) brightness(101%) contrast(101%);
+    }
+}
+.menuProps{
+    font-weight: 700;
+    box-sizing: border-box;
+    height: 25%;
+    width: 100%;
+    margin: 50px 0 0 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    div{
+        cursor:pointer;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
+}

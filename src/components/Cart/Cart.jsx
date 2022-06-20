@@ -5,16 +5,14 @@ import './Cart.scss';
 const Cart = () => {
   const { cartContent, itemCount } = useSelector((state) => state.cart);
   const { itemThumbnails } = useSelector((state) => state.item);
-  console.log(cartContent);
   const dispatch = useDispatch();
   return (
     <>
       <div className="cart">
         <div className="cartHeader">Cart</div>
-
         {cartContent.length ? (
-          cartContent.map((el) => (
-            <div className="cartItemContainer">
+          cartContent.map((el, index) => (
+            <div key={index} className="cartItemContainer">
               <div className="cartThumbnail">
                 <img src={itemThumbnails[0]} alt="" />
               </div>
