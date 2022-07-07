@@ -1,14 +1,15 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../Hooks/useTypedDispatch';
+import { useTypedSelector } from '../../Hooks/useTypedSelector';
 import { addToCart, minusItem, plusItem } from '../../store/Slices/CartSlice';
 
 import './Item.scss';
 import ItemPics from './ItemPictures/ItemPics';
 const Item = () => {
-  const { counterValue } = useSelector((state) => state.cart);
-  const { item } = useSelector((state) => state.item);
+  const { counterValue } = useTypedSelector((state) => state.cart);
+  const { item } = useTypedSelector((state) => state.item);
   const { companyName, itemName, description, price, discount, previousPrice } = item;
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   return (
     <>
       <div className="itemContainer">

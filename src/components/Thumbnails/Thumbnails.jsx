@@ -1,12 +1,12 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../Hooks/useTypedDispatch';
+import { useTypedSelector } from '../../Hooks/useTypedSelector';
 import { setCurrentImage, setLightboxIndex } from '../../store/Slices/ItemSlice';
 import './Thumbnails.scss';
 const Thumbnails = () => {
-  const { itemThumbnails, currentImgIndex, isLightboxOpen, currentLightboxImgIndex } = useSelector(
-    (state) => state.item,
-  );
-  const dispatch = useDispatch();
+  const { itemThumbnails, currentImgIndex, isLightboxOpen, currentLightboxImgIndex } =
+    useTypedSelector((state) => state.item);
+  const dispatch = useAppDispatch();
   return (
     <>
       {itemThumbnails.map((el, index) => (

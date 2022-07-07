@@ -1,4 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { ItemState } from './../../Types/ItemTypes';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import item1 from '../../assets/image-product-1.jpg';
 import item2 from '../../assets/image-product-2.jpg';
 import item3 from '../../assets/image-product-3.jpg';
@@ -7,7 +8,8 @@ import thumbnail1 from '../../assets/image-product-1-thumbnail.jpg';
 import thumbnail2 from '../../assets/image-product-2-thumbnail.jpg';
 import thumbnail3 from '../../assets/image-product-3-thumbnail.jpg';
 import thumbnail4 from '../../assets/image-product-4-thumbnail.jpg';
-const initialState = {
+
+const initialState: ItemState  = {
   itemPictures: [item1, item2, item3, item4],
   itemThumbnails: [thumbnail1, thumbnail2, thumbnail3, thumbnail4],
   currentImgIndex: 0,
@@ -29,7 +31,7 @@ export const itemSlice = createSlice({
   name: 'item',
   initialState,
   reducers: {
-    setCurrentImage(state, action) {
+    setCurrentImage(state, action: PayloadAction<number>) {
       state.currentImgIndex = action.payload;
     },
     changePopupStatus(state) {
@@ -38,7 +40,7 @@ export const itemSlice = createSlice({
     changeLightboxStatus(state) {
       state.isLightboxOpen = !state.isLightboxOpen;
     },
-    setLightboxIndex(state, action) {
+    setLightboxIndex(state, action: PayloadAction<number>) {
       state.currentLightboxImgIndex = action.payload;
     },
     nextPicture(state) {

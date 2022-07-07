@@ -1,13 +1,14 @@
 import React from 'react';
 import './Lightbox.scss';
-import { useDispatch, useSelector } from 'react-redux';
 import { changeLightboxStatus, nextPicture, prevPicture } from '../../store/Slices/ItemSlice';
 import Thumbnails from '../Thumbnails/Thumbnails';
+import { useTypedSelector } from '../../Hooks/useTypedSelector';
+import { useAppDispatch } from '../../Hooks/useTypedDispatch';
 const Lightbox = () => {
-  const { currentLightboxImgIndex, itemPictures, isLightboxOpen } = useSelector(
+  const { currentLightboxImgIndex, itemPictures, isLightboxOpen } = useTypedSelector(
     (state) => state.item,
   );
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <>
@@ -17,7 +18,7 @@ const Lightbox = () => {
           <div className="largePicContainer">
             <span
               className="prev"
-              onDoubleClick={(e) => e.preventDefault}
+              onDoubleClick={(e: React.MouseEvent) => e.preventDefault}
               onClick={() => dispatch(prevPicture())}>
               <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -52,7 +53,7 @@ const Lightbox = () => {
             />
             <span
               className="next"
-              onDoubleClick={(e) => e.preventDefault}
+              onDoubleClick={(e: React.MouseEvent) => e.preventDefault}
               onClick={() => dispatch(nextPicture())}>
               <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
                 <path

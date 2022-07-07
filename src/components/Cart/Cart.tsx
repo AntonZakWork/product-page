@@ -1,11 +1,14 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch } from '../../Hooks/useTypedDispatch';
+import { useTypedSelector } from '../../Hooks/useTypedSelector';
 import { deleteItem } from '../../store/Slices/CartSlice';
+import { ItemInCart } from '../../Types/CartTypes';
 import './Cart.scss';
 const Cart = () => {
-  const { cartContent, itemCount } = useSelector((state) => state.cart);
-  const { itemThumbnails } = useSelector((state) => state.item);
-  const dispatch = useDispatch();
+  const { cartContent, itemCount } = useTypedSelector((state) => state.cart);
+  const { itemThumbnails } = useTypedSelector((state) => state.item);
+  const dispatch = useAppDispatch();
+  if(cartContent.length === 0) return <></>
   return (
     <>
       <div className="cart">
@@ -19,7 +22,7 @@ const Cart = () => {
               <div className="cartItemText">
                 <div>{el.itemName}</div>
                 <div>
-                  {el.price} x {itemCount} <b>${el.price.slice(1) * el.counterValue}.00</b>
+                  {el.price} x {itemCount} <b>${+el.price.slice(1) * el.counterValue}.00</b>
                 </div>
               </div>
               <div

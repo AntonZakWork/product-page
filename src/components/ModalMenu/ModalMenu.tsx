@@ -1,10 +1,11 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch } from '../../Hooks/useTypedDispatch';
+import { useTypedSelector } from '../../Hooks/useTypedSelector';
 import { toggleModalMenu } from '../../store/Slices/ItemSlice';
 import './ModalMenu.scss';
 const ModalMenu = () => {
-  const { modalMenuStatus } = useSelector((state) => state.item);
-  const dispatch = useDispatch();
+  const { modalMenuStatus } = useTypedSelector((state) => state.item);
+  const dispatch = useAppDispatch();
   return (
     <div
       onClick={() => {

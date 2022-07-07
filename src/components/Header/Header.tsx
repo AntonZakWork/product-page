@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
 import './Header.scss';
 import avatar from '../../assets/avatar.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { changePopupStatus, toggleModalMenu } from '../../store/Slices/ItemSlice';
 import Cart from '../Cart/Cart';
+import { useTypedSelector } from '../../Hooks/useTypedSelector';
+import { useAppDispatch } from '../../Hooks/useTypedDispatch';
+import React from 'react';
 const Header = () => {
-  const { showPopupStatus } = useSelector((state) => state.item);
-  const { itemCount } = useSelector((state) => state.cart);
-  const dispatch = useDispatch();
+  const { showPopupStatus } = useTypedSelector((state) => state.item);
+  const { itemCount } = useTypedSelector((state) => state.cart);
+  const dispatch = useAppDispatch();
   return (
     <>
       <div className="headerContainer">
@@ -39,7 +41,7 @@ const Header = () => {
         <div className="headerIcons">
           <svg
             id="cart"
-            onClick={(e) => {
+            onClick={(e:React.MouseEvent) => {
               e.stopPropagation();
               dispatch(changePopupStatus());
             }}
